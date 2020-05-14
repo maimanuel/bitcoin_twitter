@@ -1,4 +1,4 @@
-# nbdev template
+# Bitcoin Twitter
 
-Use this template to more easily create your nbdev project.
+What is the world saying about Bitcoin?
 
