@@ -29,6 +29,11 @@ from twitter_credentials import CONSUMER_KEY,CONSUMER_SECRET
 
 ```python
 conn = connector(consumer_key=CONSUMER_KEY, consumer_secret=CONSUMER_SECRET)
+```
+
+## Get a dataframe of tweets
+
+```python
 df_tweets = conn.get_tweets()
 ```
 
