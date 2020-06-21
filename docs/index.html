@@ -1,11 +1,12 @@
 ---
 
-title: Project name here
+title: Bitcoin Twitter
 
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "Summary description here."
+summary: "What is the twittersphere saying about bitcoin?"
+description: "What is the twittersphere saying about bitcoin?"
 ---
 <!--
 
@@ -18,71 +19,278 @@ summary: "Summary description here."
 -->
 
 <div class="container" id="notebook-container">
+        
+    {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
 
 </div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This file will become your README and also the index of your documentation.</p>
+<h2 id="Install">Install<a class="anchor-link" href="#Install"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>pip install bitcoin_twitter</code></p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Install">Install<a class="anchor-link" href="#Install">&#182;</a></h2>
+<h2 id="How-to-use">How to use<a class="anchor-link" href="#How-to-use"> </a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>pip install your_project_name</code></p>
+<p>This package uses the twitter api and will require that you have API and Secret API keys.
+Create a <code>twitter_credentials.py</code> file containing least the following two lines</p>
+<div class="highlight"><pre><span></span><span class="n">CONSUMER_KEY</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="c1"># Api Key in quotes</span>
+<span class="n">CONSUMER_SECRET</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="c1"># API Secret Key in quotes</span>
+</pre></div>
+<p>This file will be imported as a python module. If you are working with github, it is advised to include your credentials file in <code>twitter_credentials.py</code> your <code>.gitignore</code>, to never push it to github.</p>
+<blockquote><p>Don't commit your credentials file before it's added to <code>.gitignore</code></p>
+</blockquote>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="How-to-use">How to use<a class="anchor-link" href="#How-to-use">&#182;</a></h2>
+<h2 id="Set-up-a-connection">Set up a connection<a class="anchor-link" href="#Set-up-a-connection"> </a></h2>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Fill me in please! Don't forget code examples:</p>
-
-</div>
-</div>
-</div>
+    {% raw %}
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">twitter_credentials</span> <span class="kn">import</span> <span class="n">CONSUMER_KEY</span><span class="p">,</span><span class="n">CONSUMER_SECRET</span> 
 </pre></div>
 
     </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
+</div>
+    {% endraw %}
 
-<div class="output_area">
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">conn</span> <span class="o">=</span> <span class="n">connector</span><span class="p">(</span><span class="n">consumer_key</span><span class="o">=</span><span class="n">CONSUMER_KEY</span><span class="p">,</span> <span class="n">consumer_secret</span><span class="o">=</span><span class="n">CONSUMER_SECRET</span><span class="p">)</span>
+<span class="n">df_tweets</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">get_tweets</span><span class="p">()</span>
+</pre></div>
 
-
-<div class="output_text output_subarea output_execute_result">
-<pre>2</pre>
+    </div>
+</div>
 </div>
 
 </div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead><tr>
+<th style="text-align:right"></th>
+<th style="text-align:right">tweet_id</th>
+<th style="text-align:left">tweet_text</th>
+<th style="text-align:left">tweet_created_at</th>
+<th style="text-align:right">tweet_user_id</th>
+<th style="text-align:left">user_name</th>
+<th style="text-align:left">user_screen_name</th>
+<th style="text-align:right">retweet_count</th>
+<th style="text-align:left">tweet_geo</th>
+<th style="text-align:left">tweet_coordinates</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">0</td>
+<td style="text-align:right">1274790798731567104</td>
+<td style="text-align:left">In recent AMA @Covir_io team revealed how #Covir can fight against the Covid19 corona virus.</td>
+<td style="text-align:left">2020-06-21 19:46:25</td>
+<td style="text-align:right">1010946155109203968</td>
+<td style="text-align:left">Mahim Hassan</td>
+<td style="text-align:left">MahimHassan20</td>
+<td style="text-align:right">0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:right"></td>
+<td style="text-align:right"></td>
+<td style="text-align:left">#Covir is high classy… <a href="https://t.co/WZONzPKkop">https://t.co/WZONzPKkop</a></td>
+<td style="text-align:left"></td>
+<td style="text-align:right"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:right"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1274790792306085888</td>
+<td style="text-align:left">@DinoMeIaye #Bitcoin #Ethereum Join our team now to know more. Do you know that with your smartphone and ability to… <a href="https://t.co/kjpDdSfDDP">https://t.co/kjpDdSfDDP</a></td>
+<td style="text-align:left">2020-06-21 19:46:24</td>
+<td style="text-align:right">1029302077</td>
+<td style="text-align:left">Your Favorite Ex boyfriend</td>
+<td style="text-align:left">J_Charisma101</td>
+<td style="text-align:right">0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td style="text-align:right">1274790732000354306</td>
+<td style="text-align:left">$STEEM All Targets Hit! 30% Profit💥🔥</td>
+<td style="text-align:left">2020-06-21 19:46:09</td>
+<td style="text-align:right">1247057677336719360</td>
+<td style="text-align:left">Isabella</td>
+<td style="text-align:left">cryptoexp54261B</td>
+<td style="text-align:right">0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:right"></td>
+<td style="text-align:right"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:right"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:right"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:right"></td>
+<td style="text-align:right"></td>
+<td style="text-align:left">For 10x gains, join <a href="https://t.co/knmjRPZ27y">https://t.co/knmjRPZ27y</a></td>
+<td style="text-align:left"></td>
+<td style="text-align:right"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:right"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:right"></td>
+<td style="text-align:right"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:right"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:right"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:right"></td>
+<td style="text-align:right"></td>
+<td style="text-align:left">$TEL #nem #binance #bitcoin… <a href="https://t.co/dGYdShz8Yf">https://t.co/dGYdShz8Yf</a></td>
+<td style="text-align:left"></td>
+<td style="text-align:right"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:right"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td style="text-align:right">1274790699783712769</td>
+<td style="text-align:left">#EURUSD all targets done, 2800USD Profits in a day.</td>
+<td style="text-align:left">2020-06-21 19:46:01</td>
+<td style="text-align:right">1249359552702640132</td>
+<td style="text-align:left">Aleena</td>
+<td style="text-align:left">Aleena_232</td>
+<td style="text-align:right">0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:right"></td>
+<td style="text-align:right"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:right"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:right"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:right"></td>
+<td style="text-align:right"></td>
+<td style="text-align:left">For more Free signals : <a href="https://t.co/jMqjWu2LvY">https://t.co/jMqjWu2LvY</a></td>
+<td style="text-align:left"></td>
+<td style="text-align:right"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:right"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:right"></td>
+<td style="text-align:right"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:right"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:right"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:right"></td>
+<td style="text-align:right"></td>
+<td style="text-align:left">#USDCAD… <a href="https://t.co/c64ikAETck">https://t.co/c64ikAETck</a></td>
+<td style="text-align:left"></td>
+<td style="text-align:right"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:right"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td style="text-align:right">1274790661498318851</td>
+<td style="text-align:left">@MobilePunch #Bitcoin #Ethereum Join our team now to know more. Do you know that with your smartphone and ability t… <a href="https://t.co/e1ve3VC52R">https://t.co/e1ve3VC52R</a></td>
+<td style="text-align:left">2020-06-21 19:45:52</td>
+<td style="text-align:right">1029302077</td>
+<td style="text-align:left">Your Favorite Ex boyfriend</td>
+<td style="text-align:left">J_Charisma101</td>
+<td style="text-align:right">0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
 
 </div>
 </div>
-
 </div>
 </div>
  
