@@ -24,16 +24,19 @@ This file will be imported as a python module. If you are working with github, i
 
 
 ```python
+#local
 from twitter_credentials import CONSUMER_KEY,CONSUMER_SECRET 
 ```
 
 ```python
+#local
 conn = connector(consumer_key=CONSUMER_KEY, consumer_secret=CONSUMER_SECRET)
 ```
 
 ## Get a dataframe of tweets
 
 ```python
+#local
 df_tweets = conn.get_tweets()
 ```
 
