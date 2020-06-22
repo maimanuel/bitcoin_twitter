@@ -142,12 +142,14 @@ df_tweets.head()
 You can also modify the search query to, for example, only find popular tweets by adding the query paramter `result_type=popular`
 
 ```python
+#local
 query = '#Bitcoin -filter:retweets lang:en result_type=popular'
-df_tweets = conn.get_tweets(query=query)
+df_tweets = conn.get_tweets(query=query,n_items=10000)
 ```
 
 ```python
-df_tweets.head()
+#local
+df_tweets.tail()
 ```
 
 
@@ -184,61 +186,61 @@ df_tweets.head()
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>1275022550188339203</td>
-      <td>#CRYPTO #BITCOIN #FOREX\nMarket capitalisation...</td>
-      <td>2020-06-22 11:07:19</td>
-      <td>1125345616152997888</td>
-      <td>Nick Walterson</td>
-      <td>NickWalterson</td>
+      <th>995</th>
+      <td>1275017093570801664</td>
+      <td>I see a lot of #fud regarding #bch \n\nI don’t...</td>
+      <td>2020-06-22 10:45:38</td>
+      <td>950480284377546752</td>
+      <td>Professor Freedom 🛡</td>
+      <td>BTC__Blockchain</td>
       <td>0</td>
       <td>None</td>
       <td>None</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>1275022451861344256</td>
-      <td>Whose the winner of the war ? https://t.co/TxC...</td>
-      <td>2020-06-22 11:06:55</td>
-      <td>1097488661699006464</td>
-      <td>The Bitcoin Street Journal</td>
-      <td>BTCstJournal</td>
+      <th>996</th>
+      <td>1275016992517480449</td>
+      <td>Say no to shitcoins; say yes to #bitcoin https...</td>
+      <td>2020-06-22 10:45:14</td>
+      <td>721964509078937600</td>
+      <td>21 Million 🔴 🚀</td>
+      <td>Cipherhoodlum</td>
       <td>0</td>
       <td>None</td>
       <td>None</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>1275022421020553219</td>
-      <td>My new custom trading posters arrived! :D #tra...</td>
-      <td>2020-06-22 11:06:48</td>
-      <td>956333887801700353</td>
-      <td>Bitcoin Billy</td>
-      <td>tradingyid</td>
+      <th>997</th>
+      <td>1275016966986661889</td>
+      <td>This is not 2009. But this is better than Bitc...</td>
+      <td>2020-06-22 10:45:08</td>
+      <td>4045549725</td>
+      <td>Robin Lift</td>
+      <td>RobinLift</td>
       <td>0</td>
       <td>None</td>
       <td>None</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>1275022414070657024</td>
-      <td>The next bull run will put #Bitcoin on par wit...</td>
-      <td>2020-06-22 11:06:46</td>
-      <td>1208002249873645568</td>
-      <td>Bitcoin_Facts 💯🎖️😍</td>
-      <td>JKELLY47865053</td>
+      <th>998</th>
+      <td>1275016958748930048</td>
+      <td>Calm Before The Storm? 5 Bitcoin Price Factors...</td>
+      <td>2020-06-22 10:45:06</td>
+      <td>1255271270</td>
+      <td>BitValley</td>
+      <td>VernonBitValley</td>
       <td>0</td>
       <td>None</td>
       <td>None</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>1275022409192493057</td>
-      <td>Both support and resistance levels are crucial...</td>
-      <td>2020-06-22 11:06:45</td>
-      <td>1267736388797001728</td>
-      <td>davide</td>
-      <td>DavideDavidclar</td>
+      <th>999</th>
+      <td>1275016948720349184</td>
+      <td>Bitmain Co-Founder Offers Share Buyback at $4B...</td>
+      <td>2020-06-22 10:45:03</td>
+      <td>1255271270</td>
+      <td>BitValley</td>
+      <td>VernonBitValley</td>
       <td>0</td>
       <td>None</td>
       <td>None</td>
@@ -261,3 +263,18 @@ df_tweets.shape
 
 
 For more information on twitter search please consult the twitter [standard search operator reference](https://developer.twitter.com/en/docs/tweets/search/guides/standard-operators), the twitter [standard search API reference](https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets), and the [tweepy Api reference](http://docs.tweepy.org/en/latest/index.html).                                                          
+
+```python
+df_tweets.plot(x='tweet_created_at',y='retweet_count')
+```
+
+
+
+
+    <matplotlib.axes._subplots.AxesSubplot at 0x126a1a710>
+
+
+
+
+![png](docs/images/output_14_1.png)
+
