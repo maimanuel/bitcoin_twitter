@@ -15,7 +15,7 @@ import pandas as pd
 # Cell
 class connector:
     def __init__(self,consumer_key, consumer_secret,n_items=1000,
-                query='#Bitcoin+bitcoin" -filter:retweets lang:en'):
+                query='#Bitcoin -filter:retweets lang:en'):
         self.auth = tw.OAuthHandler(consumer_key, consumer_secret)
         self.n_items = n_items,
         self.query = query

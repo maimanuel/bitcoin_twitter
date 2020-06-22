@@ -1,5 +1,5 @@
 ---
-
+toc: true
 title: Bitcoin Twitter
 
 keywords: fastai
@@ -35,7 +35,7 @@ description: "What is the twittersphere saying about bitcoin?"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>pip install bitcoin_twitter</code></p>
+<p><code>pip install git+https://github.com/maimanuel/bitcoin_twitter</code></p>
 
 </div>
 </div>
@@ -117,6 +117,139 @@ Create a <code>twitter_credentials.py</code> file containing least the following
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#local</span>
 <span class="n">df_tweets</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">get_tweets</span><span class="p">()</span>
+<span class="n">df_tweets</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tweet_id</th>
+      <th>tweet_text</th>
+      <th>tweet_created_at</th>
+      <th>tweet_user_id</th>
+      <th>user_name</th>
+      <th>user_screen_name</th>
+      <th>retweet_count</th>
+      <th>tweet_geo</th>
+      <th>tweet_coordinates</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1275003968305926145</td>
+      <td>400%+ Profit from Last Month's Calls🚀🔥\n\nFor ...</td>
+      <td>2020-06-22 09:53:29</td>
+      <td>1271670218842992641</td>
+      <td>Kaya</td>
+      <td>cryptoexp32562A</td>
+      <td>0</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1275003910256824326</td>
+      <td>$OST\n\n$btc #btc #bitcoin #altcoins https://t...</td>
+      <td>2020-06-22 09:53:15</td>
+      <td>115516978</td>
+      <td>Crypto Ranger</td>
+      <td>Crypto_Ranger85</td>
+      <td>0</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1275003872726200322</td>
+      <td>The Institutional Smart-Money Is Trapping Unex...</td>
+      <td>2020-06-22 09:53:06</td>
+      <td>1142737563481980931</td>
+      <td>Vince Prince</td>
+      <td>VincePrince244</td>
+      <td>0</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1275003856104153088</td>
+      <td>Gov’t threatens to take action vs #cryptocurre...</td>
+      <td>2020-06-22 09:53:02</td>
+      <td>735038454262730752</td>
+      <td>Fintech Philippines</td>
+      <td>FintechPH</td>
+      <td>0</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1275003823824629760</td>
+      <td>#Bitcoin might fall to $8,400 soon as #BTC tra...</td>
+      <td>2020-06-22 09:52:54</td>
+      <td>2338229497</td>
+      <td>BTCC</td>
+      <td>YourBTCC</td>
+      <td>0</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can also modify the search query to, for example, only find popular tweets by adding the query paramter <code>result_type=popular</code></p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;#Bitcoin -filter:retweets lang:en result_type=popular&#39;</span>
+<span class="n">df_tweets</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">get_tweets</span><span class="p">(</span><span class="n">query</span><span class="o">=</span><span class="n">query</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -126,193 +259,166 @@ Create a <code>twitter_credentials.py</code> file containing least the following
 </div>
     {% endraw %}
 
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_tweets</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tweet_id</th>
+      <th>tweet_text</th>
+      <th>tweet_created_at</th>
+      <th>tweet_user_id</th>
+      <th>user_name</th>
+      <th>user_screen_name</th>
+      <th>retweet_count</th>
+      <th>tweet_geo</th>
+      <th>tweet_coordinates</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1275022550188339203</td>
+      <td>#CRYPTO #BITCOIN #FOREX\nMarket capitalisation...</td>
+      <td>2020-06-22 11:07:19</td>
+      <td>1125345616152997888</td>
+      <td>Nick Walterson</td>
+      <td>NickWalterson</td>
+      <td>0</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1275022451861344256</td>
+      <td>Whose the winner of the war ? https://t.co/TxC...</td>
+      <td>2020-06-22 11:06:55</td>
+      <td>1097488661699006464</td>
+      <td>The Bitcoin Street Journal</td>
+      <td>BTCstJournal</td>
+      <td>0</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1275022421020553219</td>
+      <td>My new custom trading posters arrived! :D #tra...</td>
+      <td>2020-06-22 11:06:48</td>
+      <td>956333887801700353</td>
+      <td>Bitcoin Billy</td>
+      <td>tradingyid</td>
+      <td>0</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1275022414070657024</td>
+      <td>The next bull run will put #Bitcoin on par wit...</td>
+      <td>2020-06-22 11:06:46</td>
+      <td>1208002249873645568</td>
+      <td>Bitcoin_Facts 💯🎖️😍</td>
+      <td>JKELLY47865053</td>
+      <td>0</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1275022409192493057</td>
+      <td>Both support and resistance levels are crucial...</td>
+      <td>2020-06-22 11:06:45</td>
+      <td>1267736388797001728</td>
+      <td>davide</td>
+      <td>DavideDavidclar</td>
+      <td>0</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_tweets</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(1000, 9)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<table>
-<thead><tr>
-<th style="text-align:right"></th>
-<th style="text-align:right">tweet_id</th>
-<th style="text-align:left">tweet_text</th>
-<th style="text-align:left">tweet_created_at</th>
-<th style="text-align:right">tweet_user_id</th>
-<th style="text-align:left">user_name</th>
-<th style="text-align:left">user_screen_name</th>
-<th style="text-align:right">retweet_count</th>
-<th style="text-align:left">tweet_geo</th>
-<th style="text-align:left">tweet_coordinates</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right">0</td>
-<td style="text-align:right">1274790798731567104</td>
-<td style="text-align:left">In recent AMA @Covir_io team revealed how #Covir can fight against the Covid19 corona virus.</td>
-<td style="text-align:left">2020-06-21 19:46:25</td>
-<td style="text-align:right">1010946155109203968</td>
-<td style="text-align:left">Mahim Hassan</td>
-<td style="text-align:left">MahimHassan20</td>
-<td style="text-align:right">0</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:right"></td>
-<td style="text-align:right"></td>
-<td style="text-align:left">#Covir is high classy… <a href="https://t.co/WZONzPKkop">https://t.co/WZONzPKkop</a></td>
-<td style="text-align:left"></td>
-<td style="text-align:right"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:right"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:right">1</td>
-<td style="text-align:right">1274790792306085888</td>
-<td style="text-align:left">@DinoMeIaye #Bitcoin #Ethereum Join our team now to know more. Do you know that with your smartphone and ability to… <a href="https://t.co/kjpDdSfDDP">https://t.co/kjpDdSfDDP</a></td>
-<td style="text-align:left">2020-06-21 19:46:24</td>
-<td style="text-align:right">1029302077</td>
-<td style="text-align:left">Your Favorite Ex boyfriend</td>
-<td style="text-align:left">J_Charisma101</td>
-<td style="text-align:right">0</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:right">2</td>
-<td style="text-align:right">1274790732000354306</td>
-<td style="text-align:left">$STEEM All Targets Hit! 30% Profit💥🔥</td>
-<td style="text-align:left">2020-06-21 19:46:09</td>
-<td style="text-align:right">1247057677336719360</td>
-<td style="text-align:left">Isabella</td>
-<td style="text-align:left">cryptoexp54261B</td>
-<td style="text-align:right">0</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:right"></td>
-<td style="text-align:right"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:right"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:right"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:right"></td>
-<td style="text-align:right"></td>
-<td style="text-align:left">For 10x gains, join <a href="https://t.co/knmjRPZ27y">https://t.co/knmjRPZ27y</a></td>
-<td style="text-align:left"></td>
-<td style="text-align:right"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:right"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:right"></td>
-<td style="text-align:right"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:right"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:right"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:right"></td>
-<td style="text-align:right"></td>
-<td style="text-align:left">$TEL #nem #binance #bitcoin… <a href="https://t.co/dGYdShz8Yf">https://t.co/dGYdShz8Yf</a></td>
-<td style="text-align:left"></td>
-<td style="text-align:right"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:right"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:right">3</td>
-<td style="text-align:right">1274790699783712769</td>
-<td style="text-align:left">#EURUSD all targets done, 2800USD Profits in a day.</td>
-<td style="text-align:left">2020-06-21 19:46:01</td>
-<td style="text-align:right">1249359552702640132</td>
-<td style="text-align:left">Aleena</td>
-<td style="text-align:left">Aleena_232</td>
-<td style="text-align:right">0</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:right"></td>
-<td style="text-align:right"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:right"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:right"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:right"></td>
-<td style="text-align:right"></td>
-<td style="text-align:left">For more Free signals : <a href="https://t.co/jMqjWu2LvY">https://t.co/jMqjWu2LvY</a></td>
-<td style="text-align:left"></td>
-<td style="text-align:right"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:right"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:right"></td>
-<td style="text-align:right"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:right"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:right"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:right"></td>
-<td style="text-align:right"></td>
-<td style="text-align:left">#USDCAD… <a href="https://t.co/c64ikAETck">https://t.co/c64ikAETck</a></td>
-<td style="text-align:left"></td>
-<td style="text-align:right"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:right"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:right">4</td>
-<td style="text-align:right">1274790661498318851</td>
-<td style="text-align:left">@MobilePunch #Bitcoin #Ethereum Join our team now to know more. Do you know that with your smartphone and ability t… <a href="https://t.co/e1ve3VC52R">https://t.co/e1ve3VC52R</a></td>
-<td style="text-align:left">2020-06-21 19:45:52</td>
-<td style="text-align:right">1029302077</td>
-<td style="text-align:left">Your Favorite Ex boyfriend</td>
-<td style="text-align:left">J_Charisma101</td>
-<td style="text-align:right">0</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-</tbody>
-</table>
+<p>For more information on twitter search please consult the twitter <a href="https://developer.twitter.com/en/docs/tweets/search/guides/standard-operators">standard search operator reference</a>, the twitter <a href="https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets">standard search API reference</a>, and the <a href="http://docs.tweepy.org/en/latest/index.html">tweepy Api reference</a>.</p>
 
 </div>
 </div>

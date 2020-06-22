@@ -4,7 +4,7 @@
 
 ## Install
 
-`pip install bitcoin_twitter`
+`pip install git+https://github.com/maimanuel/bitcoin_twitter`
 
 ## How to use
 
@@ -22,7 +22,6 @@ This file will be imported as a python module. If you are working with github, i
 ## Set up a connection
 
 
-
 ```python
 #local
 from twitter_credentials import CONSUMER_KEY,CONSUMER_SECRET 
@@ -38,21 +37,227 @@ conn = connector(consumer_key=CONSUMER_KEY, consumer_secret=CONSUMER_SECRET)
 ```python
 #local
 df_tweets = conn.get_tweets()
+df_tweets.head()
 ```
 
-|    |            tweet_id | tweet_text                                                                                                                                     | tweet_created_at    |       tweet_user_id | user_name                  | user_screen_name   |   retweet_count | tweet_geo   | tweet_coordinates   |
-|---:|--------------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------|:--------------------|--------------------:|:---------------------------|:-------------------|----------------:|:------------|:--------------------|
-|  0 | 1274790798731567104 | In recent AMA @Covir_io team revealed how #Covir can fight against the Covid19 corona virus.                                                 | 2020-06-21 19:46:25 | 1010946155109203968 | Mahim Hassan               | MahimHassan20      |               0 |             |                     |
-|    |                     | #Covir is high classy… https://t.co/WZONzPKkop                                                                                               |                     |                     |                            |                    |                 |             |                     |
-|  1 | 1274790792306085888 | @DinoMeIaye #Bitcoin #Ethereum Join our team now to know more. Do you know that with your smartphone and ability to… https://t.co/kjpDdSfDDP | 2020-06-21 19:46:24 |          1029302077 | Your Favorite Ex boyfriend | J_Charisma101      |               0 |             |                     |
-|  2 | 1274790732000354306 | $STEEM All Targets Hit! 30% Profit💥🔥                                                                                                         | 2020-06-21 19:46:09 | 1247057677336719360 | Isabella                   | cryptoexp54261B    |               0 |             |                     |
-|    |                     |                                                                                                                                              |                     |                     |                            |                    |                 |             |                     |
-|    |                     | For 10x gains, join https://t.co/knmjRPZ27y                                                                                                  |                     |                     |                            |                    |                 |             |                     |
-|    |                     |                                                                                                                                              |                     |                     |                            |                    |                 |             |                     |
-|    |                     | $TEL #nem #binance #bitcoin… https://t.co/dGYdShz8Yf                                                                                         |                     |                     |                            |                    |                 |             |                     |
-|  3 | 1274790699783712769 | #EURUSD all targets done, 2800USD Profits in a day.                                                                                          | 2020-06-21 19:46:01 | 1249359552702640132 | Aleena                     | Aleena_232         |               0 |             |                     |
-|    |                     |                                                                                                                                              |                     |                     |                            |                    |                 |             |                     |
-|    |                     | For more Free signals : https://t.co/jMqjWu2LvY                                                                                              |                     |                     |                            |                    |                 |             |                     |
-|    |                     |                                                                                                                                              |                     |                     |                            |                    |                 |             |                     |
-|    |                     | #USDCAD… https://t.co/c64ikAETck                                                                                                             |                     |                     |                            |                    |                 |             |                     |
-|  4 | 1274790661498318851 | @MobilePunch #Bitcoin #Ethereum Join our team now to know more. Do you know that with your smartphone and ability t… https://t.co/e1ve3VC52R | 2020-06-21 19:45:52 |          1029302077 | Your Favorite Ex boyfriend | J_Charisma101      |               0 |             |                     |
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tweet_id</th>
+      <th>tweet_text</th>
+      <th>tweet_created_at</th>
+      <th>tweet_user_id</th>
+      <th>user_name</th>
+      <th>user_screen_name</th>
+      <th>retweet_count</th>
+      <th>tweet_geo</th>
+      <th>tweet_coordinates</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1275003968305926145</td>
+      <td>400%+ Profit from Last Month's Calls🚀🔥\n\nFor ...</td>
+      <td>2020-06-22 09:53:29</td>
+      <td>1271670218842992641</td>
+      <td>Kaya</td>
+      <td>cryptoexp32562A</td>
+      <td>0</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1275003910256824326</td>
+      <td>$OST\n\n$btc #btc #bitcoin #altcoins https://t...</td>
+      <td>2020-06-22 09:53:15</td>
+      <td>115516978</td>
+      <td>Crypto Ranger</td>
+      <td>Crypto_Ranger85</td>
+      <td>0</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1275003872726200322</td>
+      <td>The Institutional Smart-Money Is Trapping Unex...</td>
+      <td>2020-06-22 09:53:06</td>
+      <td>1142737563481980931</td>
+      <td>Vince Prince</td>
+      <td>VincePrince244</td>
+      <td>0</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1275003856104153088</td>
+      <td>Gov’t threatens to take action vs #cryptocurre...</td>
+      <td>2020-06-22 09:53:02</td>
+      <td>735038454262730752</td>
+      <td>Fintech Philippines</td>
+      <td>FintechPH</td>
+      <td>0</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1275003823824629760</td>
+      <td>#Bitcoin might fall to $8,400 soon as #BTC tra...</td>
+      <td>2020-06-22 09:52:54</td>
+      <td>2338229497</td>
+      <td>BTCC</td>
+      <td>YourBTCC</td>
+      <td>0</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+You can also modify the search query to, for example, only find popular tweets by adding the query paramter `result_type=popular`
+
+```python
+query = '#Bitcoin -filter:retweets lang:en result_type=popular'
+df_tweets = conn.get_tweets(query=query)
+```
+
+```python
+df_tweets.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tweet_id</th>
+      <th>tweet_text</th>
+      <th>tweet_created_at</th>
+      <th>tweet_user_id</th>
+      <th>user_name</th>
+      <th>user_screen_name</th>
+      <th>retweet_count</th>
+      <th>tweet_geo</th>
+      <th>tweet_coordinates</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1275022550188339203</td>
+      <td>#CRYPTO #BITCOIN #FOREX\nMarket capitalisation...</td>
+      <td>2020-06-22 11:07:19</td>
+      <td>1125345616152997888</td>
+      <td>Nick Walterson</td>
+      <td>NickWalterson</td>
+      <td>0</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1275022451861344256</td>
+      <td>Whose the winner of the war ? https://t.co/TxC...</td>
+      <td>2020-06-22 11:06:55</td>
+      <td>1097488661699006464</td>
+      <td>The Bitcoin Street Journal</td>
+      <td>BTCstJournal</td>
+      <td>0</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1275022421020553219</td>
+      <td>My new custom trading posters arrived! :D #tra...</td>
+      <td>2020-06-22 11:06:48</td>
+      <td>956333887801700353</td>
+      <td>Bitcoin Billy</td>
+      <td>tradingyid</td>
+      <td>0</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1275022414070657024</td>
+      <td>The next bull run will put #Bitcoin on par wit...</td>
+      <td>2020-06-22 11:06:46</td>
+      <td>1208002249873645568</td>
+      <td>Bitcoin_Facts 💯🎖️😍</td>
+      <td>JKELLY47865053</td>
+      <td>0</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1275022409192493057</td>
+      <td>Both support and resistance levels are crucial...</td>
+      <td>2020-06-22 11:06:45</td>
+      <td>1267736388797001728</td>
+      <td>davide</td>
+      <td>DavideDavidclar</td>
+      <td>0</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+```python
+df_tweets.shape
+```
+
+
+
+
+    (1000, 9)
+
+
+
+For more information on twitter search please consult the twitter [standard search operator reference](https://developer.twitter.com/en/docs/tweets/search/guides/standard-operators), the twitter [standard search API reference](https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets), and the [tweepy Api reference](http://docs.tweepy.org/en/latest/index.html).                                                          
